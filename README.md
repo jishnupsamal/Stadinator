@@ -1,3 +1,3 @@
 # { To be Decided }
 
-One app for all IPL audience needs. 
+One app for all the stadium needs. 
