@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{title}}{% endblock title %}
+
+{% block head %}
+    <link href="{% static 'styles/style.css' %}" rel='stylesheet'/>
+{% endblock head %}
+
+{% block body %}
+    <h1>{{title}}</h1>
+    <p>{{object.username}}</p>
+    <p><a href="mailto:{{object.email}}" target="_blank">{{object.email}}</a></p>
+
+{% endblock body %}

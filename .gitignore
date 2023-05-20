@@ -1,0 +1,9 @@
+Include
+Lib
+Scripts
+migrations
+__pycache__
+*.cfg
+.vscode
+cred.txt
+.env
