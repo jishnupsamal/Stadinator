@@ -95,7 +95,7 @@ class MyOrders(LoginRequiredMixin, UserPassesTestMixin, ListView):
     model = Order
     template_name = 'store/order_list.html'
     
-    def get_queryset(self) -> QuerySet[Any]:
+    def get_queryset(self):
         return get_list_or_404(Order, User=self.request.user)
     
     
