@@ -17,7 +17,7 @@
         {% if product.in_stock %}
         <a href="{% url 'store:detail' product.slug %}">
             <div class="store__card"/>
-            <img class="store__card__hero" src="https://stadinator.s3.eu-central-003.backblazeb2.com/{{product.image}}"/>
+            <img class="store__card__hero" src="https://stadinator.s3.eu-central-003.backblazeb2.com/static/{{product.image}}"/>
             <div class="blog__card__text">
                 <h3 >{{product.name}}</h3>
             </div>

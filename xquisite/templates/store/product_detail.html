@@ -12,7 +12,7 @@
     <h1>{{object.name}}</h1>
     <h3 class="product__price">₹ {{ object.price }}</h3>
     {% if object.image %}
-        <img class='product__hero' src="https://stadinator.s3.eu-central-003.backblazeb2.com/{{object.image}}" alt="{{object.name}}" fetchpriority='high' loading='eager' />
+        <img class='product__hero' src="https://stadinator.s3.eu-central-003.backblazeb2.com/static/{{object.image}}" alt="{{object.name}}" fetchpriority='high' loading='eager' />
     {% endif %}
     <p class="product__description">
         {{ object.description }}
