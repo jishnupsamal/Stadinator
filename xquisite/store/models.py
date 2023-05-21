@@ -2,6 +2,7 @@ from django.contrib.auth import get_user_model
 from django.db import models
 from django.template.defaultfilters import slugify
 from django.core.exceptions import ValidationError
+from phonenumber_field.modelfields import PhoneNumberField
 
 def validate_phone(value):
     if len(str(value)) != 12:
@@ -33,7 +34,7 @@ class Order(models.Model):
     User = models.ForeignKey("accounts.User", on_delete=models.CASCADE, limit_choices_to={"is_staff": False},)
     Product = models.ForeignKey(Product, on_delete=models.CASCADE, to_field='name', limit_choices_to={"in_stock": True})
     seat = models.CharField("Seat Number", max_length=10)
-    phone = models.IntegerField('Phone Number', help_text='Phone Number alongwith Country Code', validators=[validate_phone])
+    phone = PhoneNumberField('Phone Number', help_text='Phone Number alongwith Country Code')
     ordered_at = models.DateTimeField('Ordered at', auto_now_add=True)
     delivered = models.BooleanField('Delivered', default=False)
     

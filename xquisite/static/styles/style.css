@@ -71,14 +71,14 @@ form p select {
   font-family: "Cabin", sans-serif;
   outline: none;
 }
-form p input[type=text], form p input[type=number], form p input[type=password], form p input[type=email] {
+form p input[type=text], form p input[type=number], form p input[type=password], form p input[type=email], form p input[type=tel] {
   border: 0 solid transparent;
   font-family: "Cabin", sans-serif;
   font-size: 15px;
   border-bottom: 2px solid #CCCCCC;
   padding: 0.4rem 1rem;
 }
-form p input[type=text]:focus, form p input[type=number]:focus, form p input[type=password]:focus, form p input[type=email]:focus {
+form p input[type=text]:focus, form p input[type=number]:focus, form p input[type=password]:focus, form p input[type=email]:focus, form p input[type=tel]:focus {
   border-bottom: 2px solid #631a86;
   outline: none;
 }
