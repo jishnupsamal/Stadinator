@@ -4,6 +4,6 @@ from django.views import View
 class home(View):
     def get(self, request):
         context = {
-            'title': 'Xquisite',
+            'title': 'Stadinator',
         }
         return render(request, 'home.html', context=context)

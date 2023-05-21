@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['stadinator.onrender.com']
+ALLOWED_HOSTS = ['stadinator.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -154,7 +154,7 @@ AWS_S3_ENDPOINT_URL = config('AWS_S3_ENDPOINT_URL')
 AWS_S3_CUSTOM_DOMAIN = config('AWS_S3_CUSTOM_DOMAIN')
 
 AWS_LOCATION = 'static'
-STATIC_URL = 'static/'
+STATIC_URL = 'https://stadinator.s3.eu-central-003.backblazeb2.com/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
