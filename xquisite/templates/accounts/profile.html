@@ -11,5 +11,5 @@
     <h1>{{title}}</h1>
     <p>{{object.username}}</p>
     <p><a href="mailto:{{object.email}}" target="_blank">{{object.email}}</a></p>
-
+    <h3><a href="{% url 'accounts:myorders' %}">My Orders</a></h3>
 {% endblock body %}

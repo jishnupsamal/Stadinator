@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Store{% endblock title %}
+
+{% block body %}
+    <h1>Store</h1>
+    {% if user.is_staff or user.is_superuser %}
+    <a href="{% url 'store:create' %}">Add New Product</a>
+    <br/>
+    <a href="{% url 'store:list_orders' %}">View Orders</a>
+    <br/>
+    {% endif %}
+    {% for product in object_list %}
+        {% if product.in_stock %}
+            <a href="{% url 'store:detail' product.slug %}">
+                <h3>{{product.name}}</h3>
+            </a>
+        {% endif %}
+    {% endfor %}
+{% endblock body %}
+    

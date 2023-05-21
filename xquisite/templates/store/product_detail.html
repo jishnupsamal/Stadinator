@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{object.name}} - Store{% endblock title %}
+
+{% block head %}
+    <link rel='stylesheet' href="{% static 'styles/store.css' %}"/>
+{% endblock head %}
+
+{% block body %}
+    <h1>{{object.name}}</h1>
+    <h3>₹ {{ object.price }}</h3>
+    {% if object.image %}
+        <img class='thumb' src="/{{object.image}}" alt="{{object.name}}" fetchpriority='high' loading='eager' />
+    {% endif %}
+    <br/>
+
+    {% if request.user.is_staff or request.user.is_superuser %}
+        <a href="{% url 'store:update' object.slug %}">Update {{object.name}} </a>
+        <br/>
+        <a href="{% url 'store:delete' object.slug %}">Delete {{object.name}} </a>
+    {% else %}
+        <a href="{% url 'store:order' object.slug %}">Order {{object.name}}</a>
+    {% endif %}
+{% endblock body %}
+    

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Order Product - Store{% endblock title %}
+
+{% block head %}
+    <link rel='stylesheet' href="{% static 'styles/store.css' %}"/>
+{% endblock head %}
+
+{% block body %}
+    {% if not request.user.is_staff or not request.user.is_superuser %}
+        <h1>Order Product</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Order">
+        </form>
+    {% else %}
+        <p>You cannot order from here.</p>
+    {% endif %}
+{% endblock body %}
+    

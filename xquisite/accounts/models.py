@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
 from django.contrib.auth.models import Group
 from django.contrib.auth import get_user_model
+from django.core.validators import validate_email
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, username, password, **extra_fields):
@@ -44,7 +45,7 @@ class CustomUserManager(BaseUserManager):
 
 class User(AbstractUser):
     objects = CustomUserManager()
-    email = models.EmailField(unique=True, blank=False)
+    email = models.EmailField(unique=True, blank=False, validators=[validate_email])
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']

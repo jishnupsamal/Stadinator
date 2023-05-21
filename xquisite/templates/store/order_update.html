@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Update {{object.User}}'s Order - Store{% endblock title %}
+
+{% block head %}
+    <link rel='stylesheet' href="{% static 'styles/store.css' %}"/>
+{% endblock head %}
+
+{% block body %}
+    <h1>{{object.User}} - {{ object.Product.item_code }}</h1>
+    <form method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update">
+    </form>
+{% endblock body %}
+    

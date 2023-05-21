@@ -1,0 +1,14 @@
+.thumb {
+    width: 20%;
+    height: 20%;
+    aspect-ratio: 16/9;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.orders th,.orders td {
+    padding: 1rem 2rem;
+}

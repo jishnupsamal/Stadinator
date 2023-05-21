@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Orders - Store{% endblock title %}
+
+
+{% block head %}
+    <link rel='stylesheet' href="{% static 'styles/store.css' %}" />
+{% endblock head %}
+    
+
+{% block body %}
+    <h1>View Orders - Store</h1>
+    <table class='orders'>
+        <tr>
+            <th>User</th>
+            <th>Product</th>
+            <th>Seat</th>
+            <th>Phone</th>
+            <th>Ordered</th>
+            <th>Delivered</th>
+        </tr>
+        {% for order in object_list %}
+            <tr>
+                <td>{{order.User}}</td>
+                <td>{{order.Product}}</td>
+                <td>{{order.seat}}</td>
+                <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
+                <td>{{order.ordered_at}}</td>
+                <td><input type='checkbox' value='{{order.delivered}}' disabled/></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock body %}
+    

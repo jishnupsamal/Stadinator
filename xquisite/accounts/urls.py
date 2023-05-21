@@ -5,6 +5,7 @@ from .views import (
     login,
     logout,
 )
+from store.views import MyOrders
 
 app_name = 'accounts'
 
@@ -13,4 +14,5 @@ urlpatterns = [
     path('login/', login.as_view(), name='login'),
     path('logout/', logout.as_view(), name='logout'),
     path('profile/', Profile.as_view(), name='profile'),
+    path('profile/myorders/', MyOrders.as_view(), name='myorders'),
 ]

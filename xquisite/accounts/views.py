@@ -1,4 +1,3 @@
-from typing import Optional
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth import get_user_model
 from django.contrib.auth.views import LoginView, LogoutView
@@ -22,12 +21,12 @@ class signup(CreateView):
 
 class login(LoginView):
     template_name = 'accounts/signup_login.html'
-    next_page = reverse_lazy('accounts:profile')
+    next_page = reverse_lazy('store:list')
     extra_context = {
         'title': 'Login',
         'action': '/login/'
     }
-
+    
 class logout(LoginRequiredMixin, LogoutView):
     template_name = "accounts/logout.html"
     next_page = reverse_lazy('home')
@@ -42,10 +41,6 @@ class Profile(LoginRequiredMixin, DetailView):
     extra_context = {
         'title': 'Profile',
     }
-    
-    # def get(self, request):
-    #     user = get_object_or_404(User, request.user.id)
-    #     return render(request, "accounts/profile.html", context={'object': user})
     
     def get_object(self):
         user = get_object_or_404(User, id=self.request.user.id)

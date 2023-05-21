@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     
     # User defined apps
     "accounts",
+    "store",
 ]
 
 MIDDLEWARE = [
