@@ -1,4 +1,226 @@
-h1 {
-    color: blueviolet;
-    text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+:root {
+  accent-color: #631a86;
 }
+
+body {
+  background-color: #f7f0f0;
+  font-family: "Cabin", sans-serif;
+  font-size: 18px;
+}
+
+h1 {
+  color: blueviolet;
+  text-align: center;
+}
+
+a {
+  text-decoration: underline;
+  color: #f89ae8;
+}
+a:hover {
+  color: #a2666f;
+}
+
+.helptext {
+  display: block;
+  color: gray;
+  font-size: 12px;
+}
+
+.main {
+  margin-left: 1rem;
+}
+
+.button, .button-secondary, form input[type=submit], .button-primary {
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 0.8rem;
+  border: 2px solid transparent;
+  border-radius: 0.6rem;
+  margin: 0.8rem 0.8rem 0.8rem 0;
+  text-align: center;
+}
+.button-primary {
+  background-color: #f45866;
+}
+.button-primary:hover {
+  color: white;
+  background-color: #f73445;
+}
+.button-secondary, form input[type=submit] {
+  background-color: #c45ab3;
+}
+.button-secondary:hover, form input[type=submit]:hover {
+  color: white;
+  background-color: #bc45a9;
+}
+
+form {
+  margin: 1rem;
+}
+form p {
+  display: block label;
+  display-font-size: 16px;
+}
+form p select {
+  border-color: transparent;
+  font-size: 15px;
+  font-family: "Cabin", sans-serif;
+  outline: none;
+}
+form p input[type=text], form p input[type=number], form p input[type=password], form p input[type=email] {
+  border: 0 solid transparent;
+  font-family: "Cabin", sans-serif;
+  font-size: 15px;
+  border-bottom: 2px solid #CCCCCC;
+  padding: 0.4rem 1rem;
+}
+form p input[type=text]:focus, form p input[type=number]:focus, form p input[type=password]:focus, form p input[type=email]:focus {
+  border-bottom: 2px solid #631a86;
+  outline: none;
+}
+form p textarea {
+  border: 2px solid #c45ab3;
+  font-family: "Cabin", sans-serif;
+  font-size: 15px;
+  padding: 1rem;
+  border-radius: 0.2rem;
+  overflow-x: auto;
+}
+form p textarea:focus {
+  outline: none;
+}
+form input[type=submit] {
+  font-size: 1rem;
+  font-family: "Cabin", sans-serif;
+}
+
+.thumb {
+  width: 20%;
+  height: 20%;
+  aspect-ratio: 16/9;
+}
+
+table,
+th,
+td {
+  border: 1px solid #c45ab3;
+  border-collapse: collapse;
+}
+
+.orders {
+  overflow-x: auto;
+  padding: 0 1rem;
+}
+.orders th,
+.orders td {
+  padding: 1rem 2rem;
+}
+
+.store__items {
+  display: grid;
+}
+@media only screen and (min-width: 320px) {
+  .store__items {
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 0.6rem;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .store__items {
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .store__items {
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2rem;
+  }
+}
+.store__items a {
+  text-decoration: none;
+  color: black;
+}
+.store__items a:hover, .store__items a:focus {
+  color: black;
+}
+.store__card {
+  border: 0.1rem solid #CCCCCC;
+  border-radius: 1rem;
+  overflow: auto;
+  transition: box-shadow 0.8s ease-in-out;
+}
+.store__card__hero {
+  box-sizing: content-box;
+  object-fit: cover;
+  width: 100%;
+  height: 13rem;
+}
+.store__card__text {
+  padding: 0.5rem 1rem;
+}
+.store__card__footer {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  color: #a3a3a3;
+}
+.store__card:hover, .store__card:focus {
+  box-shadow: 9px 13px 32px 0px rgba(0, 0, 0, 0.75);
+}
+.store__card:hover h2, .store__card:focus h2 {
+  transition: color 1s ease-in-out;
+  color: #f49390;
+}
+
+.product {
+  margin-bottom: 3rem;
+}
+@media only screen and (min-width: 320px) {
+  .product {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .product {
+    margin-right: 6rem;
+    margin-left: 6rem;
+  }
+}
+.product__hero {
+  object-fit: cover;
+  border-radius: 1rem;
+  width: 100%;
+}
+@media only screen and (min-width: 320px) {
+  .product__hero {
+    height: 60vh;
+  }
+}
+@media only screen and (min-width: 481px) {
+  .product__hero {
+    height: 60vh;
+  }
+}
+@media only screen and (min-width: 769px) {
+  .product__hero {
+    height: 75vh;
+  }
+}
+.product__price {
+  text-align: center;
+  font-size: 4rem;
+}
+.product__description {
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+/*# sourceMappingURL=style.css.map */

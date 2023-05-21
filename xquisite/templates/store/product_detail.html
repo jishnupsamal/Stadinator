@@ -8,19 +8,22 @@
 {% endblock head %}
 
 {% block body %}
+<div class='product'>
     <h1>{{object.name}}</h1>
-    <h3>₹ {{ object.price }}</h3>
+    <h3 class="product__price">₹ {{ object.price }}</h3>
     {% if object.image %}
-        <img class='thumb' src="/{{object.image}}" alt="{{object.name}}" fetchpriority='high' loading='eager' />
+        <img class='product__hero' src="/{{object.image}}" alt="{{object.name}}" fetchpriority='high' loading='eager' />
     {% endif %}
-    <br/>
+    <p class="product__description">
+        {{ object.description }}
+    </p>
 
     {% if request.user.is_staff or request.user.is_superuser %}
-        <a href="{% url 'store:update' object.slug %}">Update {{object.name}} </a>
-        <br/>
-        <a href="{% url 'store:delete' object.slug %}">Delete {{object.name}} </a>
+        <a class='button-secondary' href="{% url 'store:update' object.slug %}">Update </a>
+        <a class='button-primary' href="{% url 'store:delete' object.slug %}">Delete </a>
     {% else %}
-        <a href="{% url 'store:order' object.slug %}">Order {{object.name}}</a>
+        <a class='button-secondary' href="{% url 'store:order' object.slug %}">Order</a>
     {% endif %}
+</div>
 {% endblock body %}
     

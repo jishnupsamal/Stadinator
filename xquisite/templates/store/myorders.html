@@ -2,7 +2,7 @@
 {% load static %}
 {% load tz %}
 
-{% block title %}Orders - Store{% endblock title %}
+{% block title %}My Orders{% endblock title %}
 
 
 {% block head %}
@@ -11,8 +11,9 @@
     
 
 {% block body %}
-    <h1>View Orders - Store</h1>
-    <table class='orders'>
+    <h1>My Orders</h1>
+    <div class='orders'/>
+    <table>
         <tr>
             <th>Product</th>
             <th>Seat</th>
@@ -30,5 +31,6 @@
             </tr>
         {% endfor %}
     </table>
+</div>
 {% endblock body %}
     

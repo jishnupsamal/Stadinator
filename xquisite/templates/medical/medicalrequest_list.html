@@ -14,7 +14,8 @@
     <a href="{% url 'store:create' %}">Add New Product</a>
     <br/>
     {% endif %} {% endcomment %}
-    <table class='orders'>
+    <div class='orders'>
+    <table>
         <tr>
             <th>User</th>
             <th>Seat</th>
@@ -38,5 +39,6 @@
             {% endif %}
         {% endfor %}
     </table>
+</div>
 {% endblock body %}
     

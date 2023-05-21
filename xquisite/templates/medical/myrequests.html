@@ -11,13 +11,13 @@
     
 
 {% block body %}
-    <h1>View Medical Requests</h1>
+    <h1>My Medical Requests</h1>
     <table class='orders'>
         <tr>
             <th>Seat</th>
             <th>Phone</th>
-            <th>Ordered</th>
-            <th>Delivered</th>
+            <th>Requested at</th>
+            <th>Resolved</th>
         </tr>
         {% for request in object_list %}
             <tr>

@@ -9,7 +9,13 @@
 
 {% block body %}
     <h1>{{title}}</h1>
-    <p>{{object.username}}</p>
-    <p><a href="mailto:{{object.email}}" target="_blank">{{object.email}}</a></p>
-    <h3><a href="{% url 'accounts:myorders' %}">My Orders</a></h3>
+    <div class='orders'>
+    <p>Username: {{object.username}}</p>
+    <p>Email: <a href="mailto:{{object.email}}" target="_blank">{{object.email}}</a></p>
+    {% if not request.user.is_staff or not request.user.is_superuser %}
+    <p><a class='button-secondary' href="{% url 'accounts:myorders' %}">My Orders</a></p>
+    <p><a class='button-secondary' href="{% url 'accounts:myorders' %}">My Medical Requests</a></p>
+    {% endif %}
+    <p><a class='button-primary' href="{% url 'accounts:logout' %}">Logout</a></p>
+    </div>
 {% endblock body %}

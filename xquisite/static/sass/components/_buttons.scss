@@ -1,0 +1,31 @@
+@use '../abstract/variables' as var;
+
+.button {
+    text-decoration: none;
+    display: block;
+    color: white;
+    padding: 0.8rem;
+    border: 2px solid transparent;
+    border-radius: 0.6rem;
+    margin: 0.8rem 0.8rem 0.8rem 0;
+    text-align: center;
+
+    &-primary {
+        @extend .button;
+        background-color: var.$primary-color;
+
+        &:hover {
+            color: white;
+            background-color: scale-color($color: var.$primary-color,  $saturation: 40%, $lightness: -10%);
+        }
+    }
+
+    &-secondary {
+        @extend .button;
+        background-color: var.$secondary-color;
+        &:hover {
+            color: white;
+            background-color: scale-color($color: var.$secondary-color, $lightness: -10%);
+        }
+    }
+}

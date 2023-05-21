@@ -1,0 +1,43 @@
+@use '../abstract/variables' as var;
+@use '../abstract/mixins' as mx;
+
+.product {
+    margin-bottom: 3rem;;
+    @include mx.devices(mobile) {
+        @include mx.pagemargin($margin: .5rem);
+    }
+
+    @include mx.devices(laptop) {
+        @include mx.pagemargin($margin: 6rem);
+    }
+
+    &__hero {
+        @include mx.devices(mobile) {
+            height: 60vh;
+        }
+
+        // margin-top: 1rem;
+        // margin-bottom: 1rem;
+        object-fit: cover;
+        border-radius: 1rem;
+        width: 100%;
+
+        @include mx.devices(tablet) {
+            height: 60vh;
+        }
+
+        @include mx.devices(laptop) {
+            height: 75vh;
+        }
+    }
+
+    &__price {
+        text-align: center;
+        font-size: 4rem;
+    }
+
+    &__description {
+        font-size: 1rem;
+        margin: 1rem 0;
+    }
+}

@@ -1,0 +1,38 @@
+@use '../abstract/variables' as var;
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+:root {
+    accent-color: var.$accent-color;
+}
+
+body {
+    background-color: #f7f0f0;
+    font-family: 'Cabin', sans-serif;
+    font-size: 18px;
+}
+
+h1 {
+    color: blueviolet;
+    text-align: center;
+}
+
+a {
+    text-decoration: underline;
+    color: #f89ae8;
+
+    &:hover {
+        color: var.$extra-color;
+    }
+
+}
+
+.helptext {
+    display: block;
+    color: gray;
+    font-size: 12px;
+}
+
+.main {
+    margin-left: 1rem;
+}

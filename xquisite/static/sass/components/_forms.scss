@@ -1,0 +1,54 @@
+@use '../abstract/variables' as var;
+@use '../components/buttons' as btn;
+
+@import url('https://fonts.googleapis.com/css2?family=Cabin&display=swap');
+
+form {
+    margin: 1rem;
+
+    p {
+        display: block
+
+        label {
+            font-size: 16px;
+        }
+
+        select {
+            border-color: transparent;
+            font-size: 15px;
+            font-family: 'Cabin', sans-serif;
+            outline: none;
+        }
+
+        input[type=text], input[type=number], input[type=password], input[type=email] {
+            border: 0 solid transparent;
+            font-family: 'Cabin', sans-serif;
+            font-size: 15px;
+            border-bottom: 2px solid var.$grey;
+            padding: 0.4rem 1rem;
+
+            &:focus {
+                border-bottom: 2px solid var.$accent-color;
+                outline: none;
+            }
+        }
+
+        textarea {
+            border: 2px solid var.$secondary-color;
+            font-family: 'Cabin', sans-serif;
+            font-size: 15px;
+            padding: 1rem;
+            border-radius: 0.2rem;
+            overflow-x: auto;
+            &:focus {
+                outline: none;
+            }
+        } 
+    }
+
+    input[type=submit] {
+        font-size: 1rem;
+        font-family: 'Cabin', sans-serif;
+        @extend .button-secondary;
+    }
+}

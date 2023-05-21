@@ -4,18 +4,29 @@
 
 {% block body %}
     <h1>Store</h1>
+    <div class='main'>
     {% if user.is_staff or user.is_superuser %}
-    <a href="{% url 'store:create' %}">Add New Product</a>
-    <br/>
-    <a href="{% url 'store:list_orders' %}">View Orders</a>
+    <a class="button-primary" href="{% url 'store:create' %}">Add New Product</a>
+    <a class="button-secondary" href="{% url 'store:list_orders' %}">View Orders</a>
     <br/>
     {% endif %}
+    <div class="store">
+        
+        <div class="store__items">
     {% for product in object_list %}
         {% if product.in_stock %}
-            <a href="{% url 'store:detail' product.slug %}">
-                <h3>{{product.name}}</h3>
-            </a>
+        <a href="{% url 'store:detail' product.slug %}">
+            <div class="store__card"/>
+            <img class="store__card__hero" src="/{{product.image}}"/>
+            <div class="blog__card__text">
+                <h3 >{{product.name}}</h3>
+            </div>
+        </div>
+    </a>
         {% endif %}
     {% endfor %}
+</div>
+    </div>
+    </div>
 {% endblock body %}
     

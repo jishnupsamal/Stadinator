@@ -14,31 +14,33 @@
     <a href="{% url 'store:create' %}">Add New Product</a>
     <br/>
     {% endif %} {% endcomment %}
-    <table class='orders'>
-        <tr>
-            <th>User</th>
-            <th>Product</th>
-            <th>Seat</th>
-            <th>Phone</th>
-            <th>Ordered</th>
-            <th>Delivered</th>
-            <th>Update Status</th>
-        </tr>
-        {% for order in object_list %}
-            {% if not order.delivered %}
-                <tr>
-                    <td>{{order.User|urlize}}</td>
-                    <td><a href="{% url 'store:detail' order.Product.slug %}">{{order.Product}}</a></td>
-                    <td>{{order.seat}}</td>
-                    <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
-                    <td>
-                        {{order.ordered_at|localtime}}
-                    </td>
-                    <td><input type='checkbox' value='{{order.delivered}}' disabled/></td>
-                    <td><a href="{% url 'store:update_orders' order.id %}">Update Status</a></td>
-                </tr>
-            {% endif %}
-        {% endfor %}
-    </table>
+    <div class='orders'>
+        <table >
+            <tr>
+                <th>User</th>
+                <th>Product</th>
+                <th>Seat</th>
+                <th>Phone</th>
+                <th>Ordered</th>
+                <th>Delivered</th>
+                <th>Update Status</th>
+            </tr>
+            {% for order in object_list %}
+                {% if not order.delivered %}
+                    <tr>
+                        <td>{{order.User|urlize}}</td>
+                        <td><a href="{% url 'store:detail' order.Product.slug %}">{{order.Product}}</a></td>
+                        <td>{{order.seat}}</td>
+                        <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
+                        <td>
+                            {{order.ordered_at|localtime}}
+                        </td>
+                        <td><input type='checkbox' value='{{order.delivered}}' disabled/></td>
+                        <td><a href="{% url 'store:update_orders' order.id %}">Update Status</a></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
 {% endblock body %}
     

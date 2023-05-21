@@ -93,7 +93,7 @@ class MyOrders(LoginRequiredMixin, UserPassesTestMixin, ListView):
         else:
             return False
     model = Order
-    template_name = 'medical/myrequests.html'
+    template_name = 'store/myorders.html'
     
     def get_queryset(self):
         return get_list_or_404(Order, User=self.request.user)

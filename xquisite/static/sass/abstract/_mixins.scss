@@ -1,0 +1,35 @@
+@use './variables' as var;
+
+@mixin devices ($breakpoint) {
+    // Small Breakpoint
+    @if $breakpoint == 'mobile' {
+        @media only screen and (min-width: var.$small-breakpoint) {
+            @content;
+        }
+    }
+
+    // Medium Breakpoint
+    @else if $breakpoint == 'tablet' {
+        @media only screen and (min-width: var.$medium-breakpoint) {
+            @content;
+        }
+    }
+
+    // Large Breakpoint
+    @else if $breakpoint == 'laptop' {
+        @media only screen and (min-width: var.$large-breakpoint) {
+            @content;
+        }
+    }
+
+    @else {
+        @error "Undefined breakpoint #{$breakpoint}"
+    }
+};
+
+@mixin pagemargin ($margin:1rem) {
+    margin: {
+        right: $margin;
+        left: $margin;
+    }
+}
