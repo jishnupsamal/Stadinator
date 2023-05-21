@@ -11,7 +11,7 @@ def validate_phone(value):
         )
 
 class Product(models.Model):
-    image = models.ImageField('Product Thumbnail', upload_to='static/uploads/store', blank=True)
+    image = models.ImageField('Product Thumbnail', upload_to='uploads/store', blank=True)
     item_code = models.CharField("Item Code", unique=True, max_length=50)
     name = models.CharField('Product Name', unique=True, max_length=100)
     slug = models.SlugField("Product Slug", unique=True, blank=True)
