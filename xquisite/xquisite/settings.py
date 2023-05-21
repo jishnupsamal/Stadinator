@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS = ['stadinator.onrender.com', '127.0.0.1', 'localhost']
-
+CSRF_TRUSTED_ORIGINS = ['https://stadinator.onrender.com','http://127.0.0.1']
 
 # Application definition
 
