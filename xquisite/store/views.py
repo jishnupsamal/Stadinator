@@ -49,7 +49,7 @@ class ProductDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
 
 class OrderCreate(LoginRequiredMixin, UserPassesTestMixin, CreateView):
     def test_func(self) -> bool | None:
-        if not (self.request.user.is_superuser or not self.request.user.is_staff):
+        if not (self.request.user.is_superuser or self.request.user.is_staff):
             return True
         else:
             return False
@@ -93,7 +93,7 @@ class MyOrders(LoginRequiredMixin, UserPassesTestMixin, ListView):
         else:
             return False
     model = Order
-    template_name = 'store/order_list.html'
+    template_name = 'medical/myrequests.html'
     
     def get_queryset(self):
         return get_list_or_404(Order, User=self.request.user)

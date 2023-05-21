@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tz %}
+
+{% block title %}Medical Requests{% endblock title %}
+
+{% block head %}
+    <link rel='stylesheet' href="{% static 'styles/store.css' %}" />
+{% endblock head %}
+    
+{% block body %}
+    <h1>Medical Requests</h1>
+    {% comment %} {% if user.is_staff or user.is_superuser %}
+    <a href="{% url 'store:create' %}">Add New Product</a>
+    <br/>
+    {% endif %} {% endcomment %}
+    <table class='orders'>
+        <tr>
+            <th>User</th>
+            <th>Seat</th>
+            <th>Phone</th>
+            <th>Requested at</th>
+            <th>Resolved</th>
+            <th>Update Status</th>
+        </tr>
+        {% for request in object_list %}
+            {% if not request.is_resolved %}
+                <tr>
+                    <td>{{request.User|urlize}}</td>
+                    <td>{{request.seat}}</td>
+                    <td><a href="tel:{{request.phone}}">{{request.phone}}</a></td>
+                    <td>
+                        {{request.requested_at|localtime}}
+                    </td>
+                    <td><input type='checkbox' value='{{request.resolved}}' disabled/></td>
+                    <td><a href="{% url 'medical:update' request.id %}">Update Status</a></td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock body %}
+    

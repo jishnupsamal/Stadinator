@@ -9,4 +9,5 @@ urlpatterns = [
     path('', home.as_view(), name='home'),
     path('', include('accounts.urls')),
     path('store/', include('store.urls')),
+    path('medical/', include('medical.urls')),
 ]

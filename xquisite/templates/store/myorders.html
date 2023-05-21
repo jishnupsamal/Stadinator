@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load tz %}
 
 {% block title %}Orders - Store{% endblock title %}
 
@@ -13,7 +14,6 @@
     <h1>View Orders - Store</h1>
     <table class='orders'>
         <tr>
-            <th>User</th>
             <th>Product</th>
             <th>Seat</th>
             <th>Phone</th>
@@ -22,11 +22,10 @@
         </tr>
         {% for order in object_list %}
             <tr>
-                <td>{{order.User}}</td>
-                <td>{{order.Product}}</td>
+                <td><a href="{% url 'store:detail' order.Product.slug %}">{{order.Product}}</a></td>
                 <td>{{order.seat}}</td>
                 <td><a href="tel:{{order.phone}}">{{order.phone}}</a></td>
-                <td>{{order.ordered_at}}</td>
+                <td>{{order.ordered_at| localtime}}</td>
                 <td><input type='checkbox' value='{{order.delivered}}' disabled/></td>
             </tr>
         {% endfor %}

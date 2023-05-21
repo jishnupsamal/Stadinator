@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load tz %}
+
+{% block title %}My Medical Requests{% endblock title %}
+
+
+{% block head %}
+    <link rel='stylesheet' href="{% static 'styles/store.css' %}" />
+{% endblock head %}
+    
+
+{% block body %}
+    <h1>View Medical Requests</h1>
+    <table class='orders'>
+        <tr>
+            <th>Seat</th>
+            <th>Phone</th>
+            <th>Ordered</th>
+            <th>Delivered</th>
+        </tr>
+        {% for request in object_list %}
+            <tr>
+                <td>{{request.seat}}</td>
+                <td><a href="tel:{{request.phone}}">{{request.phone}}</a></td>
+                <td>{{request.requested_at| localtime}}</td>
+                <td><input type='checkbox' value='{{request.is_resolved}}' disabled/></td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock body %}
+    

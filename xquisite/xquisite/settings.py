@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # User defined apps
     "accounts",
     "store",
+    "medical",
 ]
 
 MIDDLEWARE = [
@@ -121,16 +122,12 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
+USE_TZ = True
 TIME_ZONE = 'Asia/Kolkata'
 USE_L10N = True
-
 LANGUAGE_CODE = "en-us"
-
-TIME_ZONE = "UTC"
-
 USE_I18N = True
 
-USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
