@@ -1,3 +1,3 @@
 # Stadinator
 
-One app for all the stadium needs. 
+Your All-Access Pass to Every Stadium Experience!
